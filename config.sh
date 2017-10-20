@@ -26,7 +26,7 @@ Server   = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 SigLevel = Optional TrustAll
 Server = https://mirrors.ustc.edu.cn/blackarch/$repo/os/$arch" >> /etc/pacman.conf
 #安装必备包
-pacman -Syu && pacman -S archlinuxcn-keyring && pacman -S networkmanager xorg-server firefox yaourt wqy-zenhei sudo vim yaourt
+pacman -Syu && pacman -S archlinuxcn-keyring && pacman -S networkmanager dialog xorg-server firefox yaourt wqy-zenhei sudo vim yaourt
 
 systemctl enable NetworkManager
 
@@ -40,7 +40,7 @@ systemctl start lightdm.service
 pacman -S alsa-utils
 
 read -p "检查是否有Install字段"
-vim /lib/systemd/system/alsa-state.service
+vi /lib/systemd/system/alsa-state.service
 
 read -p "有(y)？无(n)？" ifinstall
 if ["$ifinstall" == n]
